@@ -166,3 +166,19 @@ function sideMenu(side) {
   }
   side++;
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var iframe = document.getElementById('youtube-video');
+  var videoSrc = iframe.src;
+  
+  // Play the video on hover
+  iframe.parentElement.addEventListener('mouseover', function() {
+      iframe.src = videoSrc.replace("autoplay=0", "autoplay=1");
+  });
+
+  // Stop the video when not hovering
+  iframe.parentElement.addEventListener('mouseout', function() {
+      iframe.src = videoSrc.replace("autoplay=1", "autoplay=0");
+  });
+});
